@@ -5,12 +5,10 @@ setTimeout(function load() {
 
 var audioElement = false;
 $(".sound-div a").click(function () {
-
   if ($(this).parent().hasClass("activated")) {
     $(this).parent().removeClass("activated");
     audioElement.pause();
-  }
-  else {
+  } else {
     $(this).parent().addClass("activated");
 
     if (!audioElement) {
@@ -22,3 +20,39 @@ $(".sound-div a").click(function () {
     audioElement.play();
   }
 });
+
+const Texts = [
+  "HTML",
+  "CSS",
+  "ES5/ES6",
+  "TypeScript",
+  "REST",
+  "JSON",
+  "GSAP",
+  "Data Science",
+  "Wordpress",
+  "PHP",
+  "Python",
+  "Node JS ",
+  "Bootstrap",
+  "SASS",
+  "jQuery",
+  "BEM",
+];
+
+var tagCloud = TagCloud(".sphereContainer", Texts, {
+  // Sphere radius in px
+  radius: 350,
+  // animation speed
+  // slow, normal, fast
+  maxSpeed: "fast",
+  initSpeed: "fast",
+
+  // Rolling direction [0 (top) , 90 (left), 135 (right-bottom)]
+  direction: 135,
+
+  // interaction with mouse or not [Default true (decelerate to rolling init speed, and keep rolling with mouse).]
+  keep: true,
+});
+
+document.querySelector(".sphereContainer").style.color = "#08fdd8";

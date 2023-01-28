@@ -203,6 +203,9 @@ body {
 
 
 /* main-content  */
+.head-div-change{
+  margin-top:30px;
+}
 .head-div {
   width: 100wh;
   margin-left: 180px;
@@ -271,7 +274,7 @@ body {
 .scroll-down {
   position: absolute;
   right: 10px;
-  bottom: -40px;
+  bottom: -10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -405,7 +408,7 @@ body {
 
 /* myself section    */
 .me-div {
-  padding: 120px 0;
+  padding:0;
 }
 .me-content {
   display: flex;
@@ -414,7 +417,8 @@ body {
   width: 95%;
 }
 .text-zone {
-  width: 600px;
+  width: 500px;
+  margin-top: 100px;
 }
 .my-phead {
   margin-top: 30px;
@@ -426,6 +430,12 @@ body {
   width: 400px;
   height: 400px;
   border-radius: 50%;
+}
+.sphereContainer{
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
 }
 /* myself-section end     */
 
@@ -466,7 +476,7 @@ body {
 .contact-left-details {
   z-index: 1;
   position: absolute;
-  background-color: #000;
+  background-color:#000;
   color: #fff;
   padding: 20px;
   top: 50px;
