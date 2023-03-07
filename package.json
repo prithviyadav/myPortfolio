@@ -1,0 +1,23 @@
+{
+  "name": "myportfolio",
+  "version": "1.0.0",
+  "description": "Hi , Prithvi here",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prithviyadav/myPortfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prithviyadav/myPortfolio/issues"
+  },
+  "homepage": "https://github.com/prithviyadav/myPortfolio#readme",
+  "dependencies": {
+    "gsap-trial": "^3.11.4",
+    "parcel-bundler": "^1.12.5"
+  }
+}

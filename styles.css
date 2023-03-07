@@ -1,3 +1,4 @@
+@import 'animate.css';
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +20,7 @@ body {
 .loader-content {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0px;
   width: 100%;
   height: 100%;
   background-color: #1d1d1d;
@@ -27,11 +28,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 100;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
+  opacity: 1;
+  transform: translate3d(0, 0, 0); 
+  transition: 0.75s all ease-out;
 }
+
 .loader-content img {
   width: 30px;
   height: 30px;
@@ -168,7 +173,7 @@ body {
   padding: 5px;
   right: 20px;
   position: fixed;
-  z-index: 999999;
+  z-index: 99;
   top: 20px;
   display: flex;
   align-items: center;
@@ -217,10 +222,12 @@ body {
 .head-content {
   font-size: 5rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1;  
 }
 .head-content img {
-  vertical-align: middle;
+  vertical-align: middle;  
+  animation: rotateIn 1s linear both;
+  animation-delay: 1.6s;
 }
 .head-line {
   margin-top: 20px;
@@ -304,30 +311,88 @@ body {
     transform: translateY(0);
   }
 }
+.head-content span{  
+  animation:gelatine 0.5s linear 2.5s ;
+  animation-fill-mode: forwards ;
+  display: inline-block;
+  min-width: 10px;
+}
+@keyframes gelatine {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+}
 
 .head-content span:hover {
   color: #08fdd8;
-  animation: bubble 0.7s linear 1;
   display: inline-block;
+  animation-fill-mode: both;
+  animation:rubberBand 0.7s;
 }
-@keyframes bubble {
-  5%,
-  50%,
-  80%,
-  to {
-    transform: scale(1, 1);
+
+.animated-logo{
+  position: absolute;
+  right:40px;
+  top: 20px;
+  /* opacity: 0; */
+}
+.animated-logo svg{
+  height: 500px;
+  width:500px;
+  top: 30px;
+  position: absolute;
+  right: 50px;
+  z-index:2;
+  transform: rotateZ(20deg);
+  stroke: #08fdd8;
+  animation:floating ease 15s infinite;
+}
+.animated-logo img{
+  height: 470px;
+  width:470px;
+  top: 50px;
+  z-index:1;
+  position: relative;
+  right: 50px;
+  transform: rotateZ(20deg);
+  opacity: 0;
+  animation:floating ease 10s infinite;  
+  animation-delay: 2.2s;
+}
+@keyframes floating{
+  0% {
+    transform: translate(0%,0%) rotate(360deg);
   }
-  40%,
-  45% {
-    transform: scale(1.55, 0.65);
+  25% {
+    transform: translate(5%,15%) rotate(360deg);
   }
-  60% {
-    transform: scale(1.25, 0.75);
+  50% {
+    transform: translate(10%,5%) rotate(360deg);
   }
-  90% {
-    transform: scale(1.15, 0.85);
+  75% {
+    transform: translate(0%,15%) rotate(360deg);
+  }
+  100% {
+    transform: translate(0%,0%) rotate(360deg);
   }
 }
+
+.text-content {
+  animation: fadeIn 3s backwards 1.8s;
+}
+.text-content .head-line {
+  animation: fadeIn 3s backwards 1.9s;
+}
+.text-content a {
+  animation: fadeIn 3s backwards 1.9s;
+}
+/* .text-content :nth-child(1) {animation-delay: 3.7s; } */
+/* .text-content :nth-child(2) {animation-delay: 1.8s; }
+.text-content :nth-child(3) {animation-delay: 1.9s; }
+.text-content :nth-child(4) {animation-delay: 2s; }
+.text-content :nth-child(5) {animation-delay: 2.1s; } */
+/* .text-content :nth-child(6) {animation-delay: 1.7s; } */
 /* main-content end  */
 
 /* work */
@@ -416,7 +481,7 @@ body {
   width: 95%;
 }
 .text-zone {
-  width: 500px;
+  width: 600px;
   margin-top: 100px;
 }
 .abouttext-zone {
@@ -508,6 +573,20 @@ body {
   overflow: hidden;
   width: 100%;
   height: 50px;
+  animation: fadeInUp 1.5s 2s;
+  animation-fill-mode: backwards;
+  
+}
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0);
+      opacity: 0;
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
 }
 .contact-form ul li.half {
   width: 49%;
@@ -579,6 +658,9 @@ textarea {
 /* contact-section end     */
 
 /* skills-page  */
+.skill-div{
+  padding:0;
+}
 .skills-page {
   display: flex;
   position: relative;
@@ -586,8 +668,10 @@ textarea {
 .skills-details {
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
   position: relative;
+  right: 0;
+  margin-left: 40px;
+  margin-top: 100px;
 }
 .skills-details .chart {
   width: 100%;
