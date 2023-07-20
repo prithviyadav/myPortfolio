@@ -1,4 +1,4 @@
-@import 'animate.css';
+/* @import 'animate.css'; */
 * {
   margin: 0;
   padding: 0;
@@ -30,22 +30,22 @@ body {
   align-items: center;
   z-index: 100;
   color: #fff;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
   opacity: 1;
-  transform: translate3d(0, 0, 0); 
+  transform: translate3d(0, 0, 0);
   transition: 0.75s all ease-out;
 }
 
 .loader-content img {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 3px;
 }
 .load-line {
   margin-top: 5px;
   font-weight: 200;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   word-spacing: 3px;
   letter-spacing: 2px;
 }
@@ -87,6 +87,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0;
+  z-index: 101;
   padding: 0;
 }
 .main-menu__top {
@@ -222,10 +223,10 @@ body {
 .head-content {
   font-size: 5rem;
   font-weight: 700;
-  line-height: 1;  
+  line-height: 1;
 }
 .head-content img {
-  vertical-align: middle;  
+  vertical-align: middle;
   animation: rotateIn 1s linear both;
   animation-delay: 1.6s;
 }
@@ -311,70 +312,153 @@ body {
     transform: translateY(0);
   }
 }
-.head-content span{  
-  animation:gelatine 0.5s linear 2.5s ;
-  animation-fill-mode: forwards ;
+.head-content span {
+  animation: gelatine 1.5s linear 2.5s;
+  animation-fill-mode: forwards;
   display: inline-block;
   min-width: 10px;
 }
+/* @keyframes flip {
+  
+} */
+/* .flip span {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  animation: flip 0.5s linear 5s;
+  animation-fill-mode: forwards;
+  display: inline-block;
+  min-width: 10px;
+} */
+
 @keyframes gelatine {
-  from, to { transform: scale(1, 1); }
-  25% { transform: scale(0.9, 1.1); }
-  50% { transform: scale(1.1, 0.9); }
-  75% { transform: scale(0.95, 1.05); }
+  0%,
+  100%,
+  20%,
+  53%,
+  80% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0);
+  }
+  100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    -ms-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  40% {
+    -webkit-transform: perspective(400px) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    -ms-transform: perspective(400px) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    transform: perspective(400px) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -190deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: perspective(400px) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    -ms-transform: perspective(400px) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    transform: perspective(400px) translate3d(0, 0, 150px)
+      rotate3d(0, 1, 0, -170deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  80% {
+    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
+    -ms-transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
+    transform: perspective(400px) scale3d(0.95, 0.95, 0.95);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: perspective(400px);
+    -ms-transform: perspective(400px);
+    transform: perspective(400px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
 }
 
 .head-content span:hover {
   color: #08fdd8;
   display: inline-block;
   animation-fill-mode: both;
-  animation:rubberBand 0.7s;
+  animation: rubberBand 0.7s;
 }
 
-.animated-logo{
+.animated-logo {
   position: absolute;
-  right:40px;
+  right: 40px;
   top: 20px;
   /* opacity: 0; */
 }
-.animated-logo svg{
-  height: 500px;
-  width:500px;
+.animated-logo svg {
+  height: 430px;
+  width: 430px;
   top: 30px;
   position: absolute;
   right: 50px;
-  z-index:2;
+  z-index: 2;
   transform: rotateZ(20deg);
   stroke: #08fdd8;
-  animation:floating ease 15s infinite;
+  animation: floating ease 15s infinite;
 }
-.animated-logo img{
-  height: 470px;
-  width:470px;
+.animated-logo img {
+  height: 400px;
+  width: 400px;
   top: 50px;
-  z-index:1;
+  z-index: 1;
   position: relative;
   right: 50px;
   transform: rotateZ(20deg);
   opacity: 0;
-  animation:floating ease 10s infinite;  
+  animation: floating ease 10s infinite;
   animation-delay: 2.2s;
 }
-@keyframes floating{
+@keyframes floating {
   0% {
-    transform: translate(0%,0%) rotate(360deg);
+    transform: translate(0%, 0%) rotate(360deg);
   }
   25% {
-    transform: translate(5%,15%) rotate(360deg);
+    transform: translate(5%, 15%) rotate(360deg);
   }
   50% {
-    transform: translate(10%,5%) rotate(360deg);
+    transform: translate(10%, 5%) rotate(360deg);
   }
   75% {
-    transform: translate(0%,15%) rotate(360deg);
+    transform: translate(0%, 15%) rotate(360deg);
   }
   100% {
-    transform: translate(0%,0%) rotate(360deg);
+    transform: translate(0%, 0%) rotate(360deg);
   }
 }
 
@@ -408,6 +492,12 @@ body {
   font-weight: 700;
   color: #08fdd8;
   margin-bottom: 40px;
+}
+.work-headline span:hover {
+  color: #08fdd8;
+  display: inline-block;
+  animation-fill-mode: both;
+  animation: rubberBand 0.7s;
 }
 .work-content {
   display: flex;
@@ -443,7 +533,7 @@ body {
   opacity: 0.5;
 }
 .hover-work {
-  background-image: url(/myPortfolio/images/view.png);
+  background-image: url(../images/view.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 80px;
@@ -455,7 +545,7 @@ body {
   left: 0;
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0.5s, opacity 0.3s ease-in;
+  transition: visibility 1s smooth, opacity 0.8s smooth;
 }
 .work-img:hover img {
   transform: scale(1.5);
@@ -473,6 +563,7 @@ body {
 /* myself section    */
 .me-div {
   padding: 0;
+  margin-bottom: 20px;
 }
 .me-content {
   display: flex;
@@ -508,12 +599,8 @@ body {
 /* myself-section end     */
 
 /* contact section   */
-
-.contact-page {
-  margin-top: 0px;
-  padding-top: 100px;
-}
 .contact-div {
+  /* margin-top: 20px; */
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -550,8 +637,9 @@ body {
   background-color: #000;
   color: #fff;
   padding: 20px;
-  top: 50px;
-  left: 50px;
+  top: 10px;
+  left: 10px;
+  width: 300px;
 }
 .contact-content {
   margin-top: 100px;
@@ -575,17 +663,16 @@ body {
   height: 50px;
   animation: fadeInUp 1.5s 2s;
   animation-fill-mode: backwards;
-  
 }
 @keyframes fadeInUp {
   from {
-      transform: translate3d(0,40px,0);
-      opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    opacity: 0;
   }
 
   to {
-      transform: translate3d(0,0,0);
-      opacity: 1
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 .contact-form ul li.half {
@@ -658,8 +745,8 @@ textarea {
 /* contact-section end     */
 
 /* skills-page  */
-.skill-div{
-  padding:0;
+.skill-div {
+  padding: 0;
 }
 .skills-page {
   display: flex;
@@ -669,9 +756,13 @@ textarea {
   display: flex;
   flex-direction: column;
   position: relative;
-  right: 0;
-  margin-left: 40px;
+  right: 50px;
+  margin-left: 80px;
   margin-top: 100px;
+  width: 500px;
+}
+.skills-details .college {
+  margin-left: 120px;
 }
 .skills-details .chart {
   width: 100%;
@@ -735,4 +826,16 @@ textarea {
   overflow: hidden;
   position: relative;
   height: 238px;
+}
+.newdiv{
+  position: absolute;
+  bottom: 12px;
+  z-index: 2;
+  color: white;
+  background-color:black;
+  left:100px;
+  border-radius: 5px;
+  height: 70px;
+  padding:20px;
+  width: 800px;
 }

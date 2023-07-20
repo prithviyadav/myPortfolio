@@ -17,6 +17,13 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('dZrmv2BzBh92btBSA');
+        })();
+    </script>
 </head>
 
 <body onload="load()">
@@ -31,7 +38,7 @@
 
     <section class="main-menu d-flex flex-column">
         <div class="main-menu__top">
-            <a class="logo" rel="home" href="index.html">
+            <a class="logo" rel="home" href="/">
                 <img src="images/logo.png" alt="" />
                 <span>Prithvi</span>
             </a>
@@ -89,7 +96,7 @@
     <section class="head-div head-div-change">
         <div class="head-container" style="display:flex">
             <div class="text-content">
-                <div class="head-content">
+                <div class="head-content flip">
                     <span>H</span><span>i</span><span>,</span><br>
                     <span>I</span><span>'</span><span>m</span>
                     <img src="images/logo3.png" height="100"
@@ -185,7 +192,7 @@
                 </p>
             </div>
             <div class="work-content text-content">
-                <p> A small gallery of recent projects chosen by me.I've done them all together with amazing people.<br>
+                <p> A small gallery of recent projects chosen by me.I've done them all while Learning and Exlporing.<br>
                     Interested to see some more? Visit <a rel="work" href="project/index.html">my work</a> page.
                 </p>
                 <a rel="work" href="project/index.html" class="contact-button work-button">
@@ -196,6 +203,9 @@
     </section>
     <div class="portfolio-project">
         <div class="work-project">
+            <div class="newdiv">
+                This section is in development phase and will be updated soon by the links of the Projects
+            </div>
             <div class="work-img">
                 <img src="images/1.jpg" alt="">
                 <div class="hover-work"></div>
@@ -216,7 +226,8 @@
                 <img src="images/5.jpg" alt="">
                 <div class="hover-work"></div>
             </div>
-            <div class="work-img"><img src="images/6.jpg" alt="">
+            <div class="work-img">
+                <img src="images/6.jpg" alt="">
                 <div class="hover-work"></div>
             </div>
             <div class="work-img"><img src="images/7.jpg" alt="">
@@ -248,18 +259,17 @@
                 <div>
                     <p class="my-phead">
                         Since Adobe Flash was a complete innovation, alongside with CSS 1.0 and HTML 4.01 as
-                        standards of the current web I've been passionate about web.
+                        standards of the current web I've been passionate about Web and Problems.
                     </p>
                     <p>
-                        For over a decade I had many opportunities to work in a vast spectrum of <a rel="skills"
-                            href="skills/index.html">web technologies</a> what let me gather a significant amount of
-                        various experience.
-                        Working for companies and individuals around the globe I met and learnt from amazing and
-                        ambitious people.
+                        For over a while I had many opportunities to learn and grow in a vast spectrum of <a
+                            rel="skills" href="skills/index.html">technologies and languages</a> what let me gather a
+                        significant amount of
+                        knowledge base and experience in the implementation of these frameworks.
                     </p>
                     <p>
-                        I currently work remotely with a selected freelance client base being open for new
-                        opportunities.
+                        I am currently working on exloring Artficial Intelligence which is currently
+                        on the peak of the market and how to use it to Create a Better Prduct for the people.
                     </p>
                 </div>
             </div>
@@ -304,27 +314,25 @@
                 <form id="contact" autocomplete="off">
                     <ul>
                         <li class="half">
-                            <input class="input-box" placeholder="Name" type="text" name="name" />
+                            <input class="input-box name" placeholder="Name" type="text" name="name" required/>
                             <label class="input-label"></label>
                         </li>
                         <li class="half">
-                            <input class="input-box" placeholder="Email" type="email" name="email" required />
+                            <input class="input-box email" placeholder="Email" type="email" name="email" required />
                             <label class="input-label"></label>
                         </li>
                         <li>
-                            <input class="input-box" placeholder="Subject" type="text" name="subject" />
+                            <input class="input-box subject" placeholder="Subject" type="text" name="subject" />
                             <label class="input-label"></label>
                         </li>
                         <li style="height: 150px;">
-                            <textarea class="input-box" placeholder="Message" name="msg" required></textarea>
+                            <textarea class="input-box textarea" placeholder="Message" name="msg" required></textarea>
                             <label class="input-label"></label>
                         </li>
                         <li class="submit">
-                            <a href="#" class="contact-button cont-button">
+                            <a class="contact-button cont-button bt" >
                                 <span>Send Message</span>
                             </a>
-                            <input style="display: none" id="submit" type="submit" class="contact-button"
-                                value="Send" />
                         </li>
                     </ul>
                 </form>
@@ -336,7 +344,14 @@
                     Prithvi Yadav <br> Delhi , India <br> Pin : 110094 <br><br> @ : prithvi.y24@gmail.com
                 </p>
             </div>
-            <div class="contact-img"></div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d874.9829704988966!2d77.288334369577!3d28.69168419847703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb42853c2ded%3A0x3376b1147bf1c7d0!2s1114%2C%20West%20Jyoti%20Nagar%2C%20Jyoti%20Nagar%20West%2C%20Jyoti%20Nagar%2C%20Shahdara%2C%20Delhi%2C%20110093!5e0!3m2!1sen!2sin!4v1684689166612!5m2!1sen!2sin"
+                    width="700" height="760" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+
+                </iframe>
+            </div>
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
@@ -346,7 +361,7 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="index.js" type="module"></script>
-    
+
 </body>
 
 </html>
