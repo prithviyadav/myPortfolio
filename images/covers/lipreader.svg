@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Lip movement frames passed through CNN and LSTM layers into transcribed text">
+  <defs>
+    <linearGradient id="lbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a0d14"/><stop offset="1" stop-color="#0b0710"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#lbg)"/>
+  <g stroke="#fd1056" stroke-opacity=".09">
+    <path d="M0 120h640M0 240h640M213 0v360M426 0v360"/>
+  </g>
+
+  <!-- frame strip: lip shapes -->
+  <g transform="translate(40 52)">
+    <text font-family="ui-monospace,monospace" font-size="11" fill="#6c6c78" y="-10">frames</text>
+    <g fill="none" stroke="#fd1056" stroke-width="2">
+      <g><rect x="0" y="0" width="76" height="62" rx="6" stroke-opacity=".5"/>
+        <path d="M18 31 Q38 16 58 31 Q38 46 18 31Z"/></g>
+      <g transform="translate(88 0)"><rect x="0" y="0" width="76" height="62" rx="6" stroke-opacity=".5"/>
+        <path d="M18 31 Q38 10 58 31 Q38 52 18 31Z"/></g>
+      <g transform="translate(176 0)"><rect x="0" y="0" width="76" height="62" rx="6" stroke-opacity=".5"/>
+        <ellipse cx="38" cy="31" rx="16" ry="14"/></g>
+      <g transform="translate(264 0)"><rect x="0" y="0" width="76" height="62" rx="6" stroke-opacity=".5"/>
+        <path d="M20 31 Q38 24 56 31 Q38 38 20 31Z"/></g>
+      <g transform="translate(352 0)"><rect x="0" y="0" width="76" height="62" rx="6" stroke-opacity=".5"/>
+        <path d="M18 31 Q38 14 58 31 Q38 48 18 31Z"/></g>
+      <g transform="translate(440 0)"><rect x="0" y="0" width="76" height="62" rx="6" stroke-opacity=".5"/>
+        <ellipse cx="38" cy="31" rx="12" ry="16"/></g>
+    </g>
+  </g>
+
+  <!-- network layers -->
+  <g transform="translate(0 168)">
+    <g font-family="ui-monospace,monospace" font-size="12" text-anchor="middle">
+      <g transform="translate(140 0)">
+        <rect x="-72" y="0" width="144" height="46" rx="8" fill="#180a12" stroke="#fd1056" stroke-width="1.6"/>
+        <text y="29" fill="#fd1056">CNN</text>
+      </g>
+      <g transform="translate(320 0)">
+        <rect x="-72" y="0" width="144" height="46" rx="8" fill="#180a12" stroke="#fd1056" stroke-width="1.6"/>
+        <text y="29" fill="#fd1056">LSTM</text>
+      </g>
+      <g transform="translate(500 0)">
+        <rect x="-72" y="0" width="144" height="46" rx="8" fill="#0c1a1a" stroke="#08fdd8" stroke-width="1.6"/>
+        <text y="29" fill="#08fdd8">CTC</text>
+      </g>
+    </g>
+    <g stroke="#fd1056" stroke-opacity=".55" stroke-width="1.5">
+      <path d="M212 23h36M392 23h36"/>
+    </g>
+  </g>
+
+  <!-- output -->
+  <g transform="translate(40 268)">
+    <rect x="0" y="0" width="560" height="52" rx="8" fill="#07100f" stroke="#08fdd8" stroke-opacity=".45"/>
+    <text x="18" y="32" font-family="ui-monospace,monospace" font-size="16" fill="#08fdd8">
+      "place blue at f two now"
+    </text>
+  </g>
+  <text x="600" y="344" text-anchor="end" font-family="ui-monospace,monospace" font-size="12" fill="#6c6c78">
+    95.2% · GRID corpus
+  </text>
+</svg>

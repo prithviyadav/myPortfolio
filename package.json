@@ -1,23 +1,17 @@
 {
   "name": "myportfolio",
-  "version": "1.0.0",
-  "description": "Hi , Prithvi here",
-  "main": "index.js",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Prithvi Yadav - portfolio. Static site, no build step.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "python3 -m http.server 5173",
+    "start": "python3 -m http.server 5173"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prithviyadav/myPortfolio.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/prithviyadav/myPortfolio/issues"
-  },
-  "homepage": "https://github.com/prithviyadav/myPortfolio#readme",
-  "dependencies": {
-    "gsap-trial": "^3.11.4",
-    "parcel-bundler": "^1.12.5"
-  }
+  "author": "Prithvi Yadav",
+  "license": "MIT",
+  "homepage": "https://github.com/prithviyadav/myPortfolio#readme"
 }

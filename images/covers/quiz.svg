@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Timed quiz question with a live leaderboard">
+  <defs>
+    <linearGradient id="qbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a0d14"/><stop offset="1" stop-color="#0b0710"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#qbg)"/>
+  <g stroke="#fd1056" stroke-opacity=".08">
+    <path d="M0 96h640M0 192h640M0 288h640M360 0v360"/>
+  </g>
+
+  <!-- timer ring -->
+  <g transform="translate(72 76)">
+    <circle r="34" fill="none" stroke="#fd1056" stroke-opacity=".22" stroke-width="6"/>
+    <circle r="34" fill="none" stroke="#fd1056" stroke-width="6" stroke-linecap="round"
+            stroke-dasharray="160 214" transform="rotate(-90)"/>
+    <text text-anchor="middle" y="7" font-family="ui-monospace,monospace"
+          font-size="20" font-weight="700" fill="#fd1056">07</text>
+  </g>
+
+  <!-- question + options -->
+  <g font-family="ui-monospace,monospace">
+    <text x="130" y="58" font-size="15" fill="#f2f4f6">Which sorts in O(n log n) worst case?</text>
+    <g font-size="13">
+      <g transform="translate(130 76)">
+        <rect width="200" height="34" rx="7" fill="#180a12" stroke="#fd1056" stroke-opacity=".35"/>
+        <text x="14" y="22" fill="#9a9aa4">Quicksort</text>
+      </g>
+      <g transform="translate(130 120)">
+        <rect width="200" height="34" rx="7" fill="#0c1a1a" stroke="#08fdd8" stroke-width="1.8"/>
+        <text x="14" y="22" fill="#08fdd8">Merge sort ✓</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- leaderboard -->
+  <g transform="translate(390 76)" font-family="ui-monospace,monospace" font-size="13">
+    <text y="-14" font-size="11" fill="#6c6c78">LIVE BOARD</text>
+    <g>
+      <rect width="212" height="30" rx="6" fill="#0c1a1a" stroke="#08fdd8" stroke-opacity=".5"/>
+      <text x="12" y="20" fill="#08fdd8">1 · prithvi</text><text x="200" y="20" text-anchor="end" fill="#08fdd8">980</text>
+    </g>
+    <g transform="translate(0 38)">
+      <rect width="212" height="30" rx="6" fill="#180a12" stroke="#fd1056" stroke-opacity=".22"/>
+      <text x="12" y="20" fill="#9a9aa4">2 · aarav</text><text x="200" y="20" text-anchor="end" fill="#9a9aa4">910</text>
+    </g>
+    <g transform="translate(0 76)">
+      <rect width="212" height="30" rx="6" fill="#180a12" stroke="#fd1056" stroke-opacity=".22"/>
+      <text x="12" y="20" fill="#9a9aa4">3 · meera</text><text x="200" y="20" text-anchor="end" fill="#9a9aa4">870</text>
+    </g>
+  </g>
+
+  <text x="40" y="332" font-family="ui-monospace,monospace" font-size="12" fill="#6c6c78">realtime rounds · scoring</text>
+</svg>
