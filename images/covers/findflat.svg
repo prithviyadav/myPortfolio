@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Map of housing listings with a selected result card">
+  <defs>
+    <linearGradient id="fbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1a1a"/><stop offset="1" stop-color="#07100f"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#fbg)"/>
+
+  <!-- street grid -->
+  <g stroke="#08fdd8" stroke-opacity=".16" stroke-width="1.5">
+    <path d="M0 70h640M0 168h640M0 262h640"/>
+    <path d="M96 0v360M232 0v360M392 0v360M528 0v360"/>
+  </g>
+  <g stroke="#08fdd8" stroke-opacity=".3" stroke-width="3">
+    <path d="M0 168h640"/><path d="M392 0v360"/>
+  </g>
+
+  <!-- blocks -->
+  <g fill="#08fdd8" fill-opacity=".05">
+    <rect x="110" y="84" width="106" height="68"/>
+    <rect x="248" y="182" width="128" height="64"/>
+    <rect x="408" y="84" width="104" height="68"/>
+  </g>
+
+  <!-- pins -->
+  <g>
+    <g transform="translate(160 118)">
+      <path d="M0 14c8-11 13-16 13-24a13 13 0 1 0-26 0c0 8 5 13 13 24Z" fill="#08fdd8"/>
+      <circle cx="0" cy="-10" r="4.6" fill="#07100f"/>
+    </g>
+    <g transform="translate(462 118)">
+      <path d="M0 14c8-11 13-16 13-24a13 13 0 1 0-26 0c0 8 5 13 13 24Z" fill="#08fdd8" fill-opacity=".55"/>
+      <circle cx="0" cy="-10" r="4.6" fill="#07100f"/>
+    </g>
+    <!-- selected -->
+    <g transform="translate(312 214)">
+      <circle r="26" fill="#fd1056" fill-opacity=".16"/>
+      <path d="M0 17c10-13 16-19 16-29a16 16 0 1 0-32 0c0 10 6 16 16 29Z" fill="#fd1056"/>
+      <circle cx="0" cy="-12" r="5.6" fill="#0b0710"/>
+    </g>
+  </g>
+
+  <!-- listing card -->
+  <g transform="translate(384 246)">
+    <rect width="216" height="76" rx="10" fill="#07100f" stroke="#fd1056" stroke-opacity=".55"/>
+    <text x="16" y="30" font-family="ui-monospace,monospace" font-size="15" fill="#fd1056">2BHK · Shortlisted</text>
+    <text x="16" y="54" font-family="ui-monospace,monospace" font-size="12" fill="#6c6c78">filtered from 240 listings</text>
+  </g>
+
+  <text x="40" y="332" font-family="ui-monospace,monospace" font-size="12" fill="#6c6c78">findflat · discovery</text>
+</svg>

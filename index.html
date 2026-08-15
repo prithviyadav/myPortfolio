@@ -2,366 +2,243 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prithvi : Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/logo2.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init('dZrmv2BzBh92btBSA');
-        })();
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prithvi Yadav — Software Development Engineer</title>
+  <meta name="description"
+    content="Prithvi Yadav — Software Development Engineer. Backend microservices, fintech rails, Go and Java. Explore the build log." />
+  <meta name="theme-color" content="#0d0d0f" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Prithvi Yadav — Software Development Engineer" />
+  <meta property="og:description"
+    content="Backend microservices, fintech rails, Go and Java. Walk through the build log." />
+  <meta property="og:image" content="images/logo3.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="images/logo2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;800;900&family=JetBrains+Mono:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
 </head>
 
-<body onload="load()">
+<body>
 
-    <div class="loader-content" id="loader">
-        <img src="images/logo3.png" alt="" />
-        <span>Prithvi</span>
-        <span class="load-line">Yadav Ji is Thinking</span>
-        <div class="loader"></div>
-    </div>
+  <!-- loader ------------------------------------------------------------ -->
+  <div class="loader" id="loader">
+    <img class="loader-logo" src="images/logo3.png" alt="" />
+    <span class="loader-name">PRITHVI</span>
+    <span class="loader-sub">initialising world</span>
+    <div class="loader-bar"><i></i></div>
+  </div>
 
+  <!-- the world --------------------------------------------------------- -->
+  <canvas id="world-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
 
-    <section class="main-menu d-flex flex-column">
-        <div class="main-menu__top">
-            <a class="logo" rel="home" href="/">
-                <img src="images/logo.png" alt="" />
-                <span>Prithvi</span>
-            </a>
-            <span>Web Developer</span>
+  <!-- HUD --------------------------------------------------------------- -->
+  <header class="hud hud-top">
+    <a class="brand" href="#boot" data-zone="0">
+      <img src="images/logo.png" alt="" />
+      <span>Prithvi</span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <a href="#arsenal" data-zone="1"><b>01</b> Arsenal</a>
+      <a href="#campaign" data-zone="2"><b>02</b> Campaign</a>
+      <a href="#builds" data-zone="3"><b>03</b> Builds</a>
+      <a href="#comms" data-zone="4"><b>04</b> Comms</a>
+    </nav>
+
+    <button id="sound-toggle" class="sound" type="button" aria-pressed="false" aria-label="Toggle ambient sound">
+      <i></i><i></i><i></i><i></i>
+      <span>SOUND</span>
+    </button>
+  </header>
+
+  <aside class="hud hud-side" aria-hidden="true">
+    <span class="hud-key">ZONE</span>
+    <span id="hud-zone" class="hud-val">BOOT</span>
+    <span class="hud-key">DEPTH</span>
+    <span id="hud-depth" class="hud-val">0%</span>
+  </aside>
+
+  <div class="progress" aria-hidden="true"><i id="progress-fill"></i></div>
+
+  <main>
+
+    <!-- 00 BOOT --------------------------------------------------------- -->
+    <section class="zone" id="boot">
+      <div class="zone-inner hero">
+        <p class="eyebrow reveal">00 — BOOT SEQUENCE</p>
+        <h1 class="hero-title">
+          <span class="line" id="hero-name"></span>
+          <span class="line outline" id="hero-surname"></span>
+        </h1>
+        <p class="hero-role reveal" id="hero-role"></p>
+        <p class="hero-tagline reveal" id="hero-tagline"></p>
+
+        <div class="hero-stats reveal" id="hero-stats"></div>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#builds" data-zone="3"><span>Enter the world</span></a>
+          <a class="btn btn-ghost" href="#comms" data-zone="4"><span>Contact</span></a>
         </div>
-
-        <nav class="main-menu_nav">
-            <a rel="about" href="about/index.html">About</a>
-            <a rel="skills" href="skills/index.html">My Skills</a>
-            <a rel="work" href="portfolio/index.html">Projects</a>
-            <a rel="contact" href="contact/index.html">Contact</a>
-        </nav>
-
-        <ul class="social">
-            <li>
-                <a href="https://www.linkedin.com/in/prithvi-yadav-590742232/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-linkedin" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/prithviyadav">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-github" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.youtube.com/channel/UCWfvh7lUU5YUCNSKgBddB2Q">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-youtube" viewBox="0 0 16 16">
-                        <path
-                            d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span>scroll to travel</span><i></i></div>
     </section>
 
-    <div class="sound-div">
-        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="soundcloud" role="img"
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="fa-soundcloud">
-            <path fill="currentColor"
-                d="M111.4 256.3l5.8 65-5.8 68.3c-.3 2.5-2.2 4.4-4.4 4.4s-4.2-1.9-4.2-4.4l-5.6-68.3 5.6-65c0-2.2 1.9-4.2 4.2-4.2 2.2 0 4.1 2 4.4 4.2zm21.4-45.6c-2.8 0-4.7 2.2-5 5l-5 105.6 5 68.3c.3 2.8 2.2 5 5 5 2.5 0 4.7-2.2 4.7-5l5.8-68.3-5.8-105.6c0-2.8-2.2-5-4.7-5zm25.5-24.1c-3.1 0-5.3 2.2-5.6 5.3l-4.4 130 4.4 67.8c.3 3.1 2.5 5.3 5.6 5.3 2.8 0 5.3-2.2 5.3-5.3l5.3-67.8-5.3-130c0-3.1-2.5-5.3-5.3-5.3zM7.2 283.2c-1.4 0-2.2 1.1-2.5 2.5L0 321.3l4.7 35c.3 1.4 1.1 2.5 2.5 2.5s2.2-1.1 2.5-2.5l5.6-35-5.6-35.6c-.3-1.4-1.1-2.5-2.5-2.5zm23.6-21.9c-1.4 0-2.5 1.1-2.5 2.5l-6.4 57.5 6.4 56.1c0 1.7 1.1 2.8 2.5 2.8s2.5-1.1 2.8-2.5l7.2-56.4-7.2-57.5c-.3-1.4-1.4-2.5-2.8-2.5zm25.3-11.4c-1.7 0-3.1 1.4-3.3 3.3L47 321.3l5.8 65.8c.3 1.7 1.7 3.1 3.3 3.1 1.7 0 3.1-1.4 3.1-3.1l6.9-65.8-6.9-68.1c0-1.9-1.4-3.3-3.1-3.3zm25.3-2.2c-1.9 0-3.6 1.4-3.6 3.6l-5.8 70 5.8 67.8c0 2.2 1.7 3.6 3.6 3.6s3.6-1.4 3.9-3.6l6.4-67.8-6.4-70c-.3-2.2-2-3.6-3.9-3.6zm241.4-110.9c-1.1-.8-2.8-1.4-4.2-1.4-2.2 0-4.2.8-5.6 1.9-1.9 1.7-3.1 4.2-3.3 6.7v.8l-3.3 176.7 1.7 32.5 1.7 31.7c.3 4.7 4.2 8.6 8.9 8.6s8.6-3.9 8.6-8.6l3.9-64.2-3.9-177.5c-.4-3-2-5.8-4.5-7.2zm-26.7 15.3c-1.4-.8-2.8-1.4-4.4-1.4s-3.1.6-4.4 1.4c-2.2 1.4-3.6 3.9-3.6 6.7l-.3 1.7-2.8 160.8s0 .3 3.1 65.6v.3c0 1.7.6 3.3 1.7 4.7 1.7 1.9 3.9 3.1 6.4 3.1 2.2 0 4.2-1.1 5.6-2.5 1.7-1.4 2.5-3.3 2.5-5.6l.3-6.7 3.1-58.6-3.3-162.8c-.3-2.8-1.7-5.3-3.9-6.7zm-111.4 22.5c-3.1 0-5.8 2.8-5.8 6.1l-4.4 140.6 4.4 67.2c.3 3.3 2.8 5.8 5.8 5.8 3.3 0 5.8-2.5 6.1-5.8l5-67.2-5-140.6c-.2-3.3-2.7-6.1-6.1-6.1zm376.7 62.8c-10.8 0-21.1 2.2-30.6 6.1-6.4-70.8-65.8-126.4-138.3-126.4-17.8 0-35 3.3-50.3 9.4-6.1 2.2-7.8 4.4-7.8 9.2v249.7c0 5 3.9 8.6 8.6 9.2h218.3c43.3 0 78.6-35 78.6-78.3.1-43.6-35.2-78.9-78.5-78.9zm-296.7-60.3c-4.2 0-7.5 3.3-7.8 7.8l-3.3 136.7 3.3 65.6c.3 4.2 3.6 7.5 7.8 7.5 4.2 0 7.5-3.3 7.5-7.5l3.9-65.6-3.9-136.7c-.3-4.5-3.3-7.8-7.5-7.8zm-53.6-7.8c-3.3 0-6.4 3.1-6.4 6.7l-3.9 145.3 3.9 66.9c.3 3.6 3.1 6.4 6.4 6.4 3.6 0 6.4-2.8 6.7-6.4l4.4-66.9-4.4-145.3c-.3-3.6-3.1-6.7-6.7-6.7zm26.7 3.4c-3.9 0-6.9 3.1-6.9 6.9L227 321.3l3.9 66.4c.3 3.9 3.1 6.9 6.9 6.9s6.9-3.1 6.9-6.9l4.2-66.4-4.2-141.7c0-3.9-3-6.9-6.9-6.9z"
-                class=""></path>
-        </svg>
-        Sound <a href="#"></a>
-    </div>
+    <!-- 01 ARSENAL ------------------------------------------------------ -->
+    <section class="zone" id="arsenal">
+      <div class="zone-inner">
+        <header class="zone-head reveal">
+          <p class="eyebrow">01 — ARSENAL</p>
+          <h2 class="zone-title">The <em>loadout</em></h2>
+          <p class="zone-lead">
+            What I reach for. Go and Java are home; the rest are picked per problem.
+          </p>
+        </header>
+        <div class="grid grid-arsenal" id="arsenal-grid"></div>
 
-    <section class="head-div head-div-change">
-        <div class="head-container" style="display:flex">
-            <div class="text-content">
-                <div class="head-content flip">
-                    <span>H</span><span>i</span><span>,</span><br>
-                    <span>I</span><span>'</span><span>m</span>
-                    <img src="images/logo3.png" height="100"
-                        width="100"><span>r</span><span>i</span><span>t</span><span>h</span><span>v</span><span>i</span><br>
-                    <span>w</span><span>e</span><span>b</span><span> </span>
-                    <span>d</span><span>e</span><span>v</span><span>e</span><span>l</span><span>o</span><span>p</span><span>e</span><span>r</span><br>
+        <div class="credentials">
+          <section class="panel card-edu">
+            <h3>Education</h3>
+            <ul class="edu-list" id="education-list"></ul>
+          </section>
+          <section class="panel card-ach accent-pink">
+            <h3>Achievements</h3>
+            <ul class="ach-list" id="achievement-list"></ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 CAMPAIGN ----------------------------------------------------- -->
+    <section class="zone" id="campaign">
+      <div class="zone-inner">
+        <header class="zone-head reveal">
+          <p class="eyebrow">02 — CAMPAIGN</p>
+          <h2 class="zone-title">Missions <em>run</em></h2>
+          <p class="zone-lead">
+            Where the work happened, and what actually shipped.
+          </p>
+        </header>
+        <div class="campaign-track" id="campaign-track"></div>
+      </div>
+    </section>
+
+    <!-- 03 BUILDS ------------------------------------------------------- -->
+    <section class="zone" id="builds">
+      <div class="zone-inner">
+        <header class="zone-head reveal">
+          <p class="eyebrow">03 — BUILDS</p>
+          <h2 class="zone-title">Things I <em>made</em></h2>
+          <p class="zone-lead">
+            Every repo below is live. Where a deployment is running, there's a Launch button.
+          </p>
+        </header>
+        <div class="grid grid-builds" id="builds-grid"></div>
+      </div>
+    </section>
+
+    <!-- 04 COMMS -------------------------------------------------------- -->
+    <section class="zone" id="comms">
+      <div class="zone-inner">
+        <header class="zone-head reveal">
+          <p class="eyebrow">04 — COMMS</p>
+          <h2 class="zone-title">Talk to <em>me</em></h2>
+          <p class="zone-lead">
+            Got a role, a project, or a question? Drop it here and it lands in my inbox.
+          </p>
+        </header>
+
+        <div class="comms-grid">
+          <section class="panel contact-panel" aria-label="Send a message">
+            <form id="contact-form" class="contact-form" autocomplete="off" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="cf-name">Name</label>
+                  <input id="cf-name" name="name" type="text" required placeholder="Your name" />
+                  <small class="field-error" data-for="cf-name"></small>
                 </div>
-
-                <p class="head-line"> <i> Full Stack Web Developer</i></p>
-                <a href="contact/index.html" class="contact-button">
-                    <span>Contact Me!</span>
-                </a>
-            </div>
-            <div class="animated-logo">
-                <svg class="svg-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 183 182"
-                    enable-background="new 0 0 183 182" xml:space="preserve">
-                    <path d="
-                        M35.823151,165.088623 
-                            C41.793980,164.979462 47.590996,164.979462 53.707554,164.979462 
-                            C53.707554,115.089020 53.707554,65.515732 53.707554,15.245001 
-                            C48.058571,15.245001 42.452522,15.245001 36.369934,15.292600 
-                            C35.893398,15.340199 35.549450,15.097559 35.337761,14.654395 
-                            C35.129372,13.200053 35.132671,12.188875 35.135967,11.177698 
-                            C60.780743,11.163743 86.433586,10.767884 112.066643,11.308984 
-                            C123.592094,11.552279 134.793045,14.546449 144.427734,21.596754 
-                            C154.522614,28.983807 159.407944,39.119923 160.134338,51.429455 
-                            C160.783691,62.433411 159.840088,73.107552 153.074707,82.404419 
-                            C144.431931,94.281189 131.763962,98.564720 118.012680,99.875404 
-                            C106.293053,100.992462 94.468819,101.011955 82.337021,101.532166 
-                            C82.337021,122.441620 82.337021,143.474243 82.337021,165.119583 
-                            C87.265617,165.119583 92.052864,164.952957 96.815224,165.223862 
-                            C98.195435,165.302383 99.504295,166.635132 100.845856,167.392914 
-                            C99.532249,167.986420 98.220543,169.091904 96.904747,169.096771 
-                            C76.588142,169.172043 56.271000,169.104309 35.541687,168.645752 
-                            C35.167431,167.234390 35.205467,166.247025 35.243507,165.259644 
-                            C35.243504,165.259644 35.649330,165.197800 35.823151,165.088623 
-                        M84.216232,96.585953 
-                            C90.044250,96.637001 95.874260,96.807297 101.699799,96.709961 
-                            C109.588455,96.578140 115.659721,92.890511 120.343292,86.687225 
-                            C127.393677,77.349136 129.713928,66.554054 129.570496,55.187008 
-                            C129.453537,45.917515 127.323982,36.989090 122.559151,28.929949 
-                            C115.114922,16.338909 101.191589,11.791874 82.643654,15.791460 
-                            C82.433983,16.397209 82.041809,17.002693 82.040924,17.608747 
-                            C82.004059,42.984066 81.989037,68.359474 82.057854,93.734634 
-                            C82.059967,94.515945 82.977921,95.294777 84.216232,96.585953 
-                        M57.005661,38.500015 
-                            C57.005661,81.053825 57.005661,123.607643 57.005661,166.130981 
-                            C64.782387,166.130981 71.694412,166.130981 78.649170,166.130981 
-                            C78.649170,115.244659 78.649170,64.725281 78.649170,14.233673 
-                            C71.287582,14.233673 64.380905,14.233673 57.005760,14.233673 
-                            C57.005760,22.242199 57.005760,29.871120 57.005661,38.500015 
-                        M147.531479,27.993265 
-                            C138.226929,18.729189 126.624023,15.514919 113.873207,14.967684 
-                            C127.681641,25.487936 132.315475,40.130623 132.345932,56.302876 
-                            C132.376251,72.416428 127.754814,86.971527 113.305626,96.915833 
-                            C124.506416,99.728729 145.296326,89.715317 152.217987,78.606987 
-                            C160.993134,64.524063 159.095306,41.810715 147.531479,27.993265 
-                        z" />
-                </svg>
-                <img class="animated-img" src="images/logo3.png" alt="">
-            </div>
-        </div>
-
-        <div class="scroll-down">
-            <span>scroll down</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-down ">
-                <path fill="currentColor"
-                    d="M443.5 248.5l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L241 419.9V44c0-6.6-5.4-12-12-12h-10c-6.6 0-12 5.4-12 12v375.9L28.5 241.4c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.8 4.8-12.3.1-17z"
-                    class="">
-                </path>
-            </svg>
-        </div>
-        <div class="scroll-down scroll-down--left">
-            <span>scroll down</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-down ">
-                <path fill="currentColor"
-                    d="M443.5 248.5l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L241 419.9V44c0-6.6-5.4-12-12-12h-10c-6.6 0-12 5.4-12 12v375.9L28.5 241.4c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.8 4.8-12.3.1-17z"
-                    class="">
-                </path>
-            </svg>
-        </div>
-
-    </section>
-
-
-    <section class="head-div work-page">
-        <div class="work-div">
-            <div>
-                <p class="work-headline head-content">
-                    <span>M</span><span>y</span><span> </span>
-                    <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span>
-                </p>
-            </div>
-            <div class="work-content text-content">
-                <p> A small gallery of recent projects chosen by me.I've done them all while Learning and Exlporing.<br>
-                    Interested to see some more? Visit <a rel="work" href="project/index.html">my work</a> page.
-                </p>
-                <a rel="work" href="project/index.html" class="contact-button work-button">
-                    <span>See More!</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <div class="portfolio-project">
-        <div class="work-project">
-            <div class="newdiv">
-                This section is in development phase and will be updated soon by the links of the Projects
-            </div>
-            <div class="work-img">
-                <img src="images/1.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img">
-                <img src="images/2.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img">
-                <img src="images/3.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img">
-                <img src="images/4.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img">
-                <img src="images/5.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img">
-                <img src="images/6.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img"><img src="images/7.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img"><img src="images/8.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img"><img src="images/9.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-            <div class="work-img"><img src="images/10.jpg" alt="">
-                <div class="hover-work"></div>
-            </div>
-        </div>
-    </div>
-
-    <section class="head-div me-div">
-        <div class="me-content">
-            <div class="text-zone text-content">
-                <div>
-                    <span class="work-headline head-content">
-                        <span>M</span><span>e</span><span>,</span>
-                        <span>M</span><span>y</span><span>s</span><span>e</span><span>l</span><span>f</span>
-                        <span></span><span>a</span><span>n</span><span>d</span>
-                        <span></span><span>I</span>
-                    </span>
+                <div class="field">
+                  <label for="cf-email">Email</label>
+                  <input id="cf-email" name="email" type="email" required placeholder="you@company.com" />
+                  <small class="field-error" data-for="cf-email"></small>
                 </div>
-                <div>
-                    <p class="my-phead">
-                        Since Adobe Flash was a complete innovation, alongside with CSS 1.0 and HTML 4.01 as
-                        standards of the current web I've been passionate about Web and Problems.
-                    </p>
-                    <p>
-                        For over a while I had many opportunities to learn and grow in a vast spectrum of <a
-                            rel="skills" href="skills/index.html">technologies and languages</a> what let me gather a
-                        significant amount of
-                        knowledge base and experience in the implementation of these frameworks.
-                    </p>
-                    <p>
-                        I am currently working on exloring Artficial Intelligence which is currently
-                        on the peak of the market and how to use it to Create a Better Prduct for the people.
-                    </p>
-                </div>
-            </div>
-            <div class="sphereContainer">
+              </div>
 
-            </div>
-        </div>
-        <div class="scroll-down">
-            <span>scroll down</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-down ">
-                <path fill="currentColor"
-                    d="M443.5 248.5l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L241 419.9V44c0-6.6-5.4-12-12-12h-10c-6.6 0-12 5.4-12 12v375.9L28.5 241.4c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.8 4.8-12.3.1-17z"
-                    class="">
-                </path>
-            </svg>
-        </div>
-        <div class="scroll-down scroll-down--left">
-            <span>scroll down</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-down ">
-                <path fill="currentColor"
-                    d="M443.5 248.5l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L241 419.9V44c0-6.6-5.4-12-12-12h-10c-6.6 0-12 5.4-12 12v375.9L28.5 241.4c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.8 4.8-12.3.1-17z"
-                    class="">
-                </path>
-            </svg>
-        </div>
-    </section>
+              <div class="field">
+                <label for="cf-subject">Subject</label>
+                <input id="cf-subject" name="subject" type="text" placeholder="What's this about?" />
+              </div>
 
-    <section class="head-div contact-div ">
-        <div class="text-zone contact-content">
-            <div>
-                <span class="work-headline head-content">
-                    <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span><span></span>
-                    <span>m</span><span>e</span>
-                </span>
-            </div>
-            <p class="contact-text text-content">
-                I&#8217;m interested in freelance opportunities &#8211; especially ambitious or large
-                projects. However, if you have other request or question, don&#8217;t hesitate to use the
-                form.
-            </p>
-            <div class="contact-form">
-                <form id="contact" autocomplete="off">
-                    <ul>
-                        <li class="half">
-                            <input class="input-box name" placeholder="Name" type="text" name="name" required/>
-                            <label class="input-label"></label>
-                        </li>
-                        <li class="half">
-                            <input class="input-box email" placeholder="Email" type="email" name="email" required />
-                            <label class="input-label"></label>
-                        </li>
-                        <li>
-                            <input class="input-box subject" placeholder="Subject" type="text" name="subject" />
-                            <label class="input-label"></label>
-                        </li>
-                        <li style="height: 150px;">
-                            <textarea class="input-box textarea" placeholder="Message" name="msg" required></textarea>
-                            <label class="input-label"></label>
-                        </li>
-                        <li class="submit">
-                            <a class="contact-button cont-button bt" >
-                                <span>Send Message</span>
-                            </a>
-                        </li>
-                    </ul>
-                </form>
-            </div>
-        </div>
-        <div class="contact-left">
-            <div class="contact-left-details">
-                <p>
-                    Prithvi Yadav <br> Delhi , India <br> Pin : 110094 <br><br> @ : prithvi.y24@gmail.com
-                </p>
-            </div>
-            <div class="map">
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="msg" rows="6" required
+                  placeholder="Tell me what you're building…"></textarea>
+                <small class="field-error" data-for="cf-message"></small>
+              </div>
+
+              <div class="form-foot">
+                <button class="btn btn-primary" type="submit" id="cf-submit">
+                  <span>Send message</span>
+                </button>
+                <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </section>
+
+          <div class="comms-side">
+            <section class="panel card-contact">
+              <h3>Direct line</h3>
+              <a class="link-row" id="comms-email" href="#"><b>Email</b><span></span></a>
+              <a class="link-row" id="comms-linkedin" target="_blank" rel="noopener noreferrer"
+                href="#"><b>LinkedIn</b><span>prithvi-yadav</span></a>
+              <a class="link-row" id="comms-github" target="_blank" rel="noopener noreferrer"
+                href="#"><b>GitHub</b><span>prithviyadav</span></a>
+              <a class="link-row" id="comms-youtube" target="_blank" rel="noopener noreferrer"
+                href="#"><b>YouTube</b><span>channel</span></a>
+              <p class="card-note">Based in <span id="comms-location"></span></p>
+            </section>
+
+            <section class="panel card-map">
+              <h3>On the map</h3>
+              <div class="map-frame">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d874.9829704988966!2d77.288334369577!3d28.69168419847703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb42853c2ded%3A0x3376b1147bf1c7d0!2s1114%2C%20West%20Jyoti%20Nagar%2C%20Jyoti%20Nagar%20West%2C%20Jyoti%20Nagar%2C%20Shahdara%2C%20Delhi%2C%20110093!5e0!3m2!1sen!2sin!4v1684689166612!5m2!1sen!2sin"
-                    width="700" height="760" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d874.9829704988966!2d77.288334369577!3d28.69168419847703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfb42853c2ded%3A0x3376b1147bf1c7d0!2s14%2C%20West%20Jyoti%20Nagar%2C%20Jyoti%20Nagar%20West%2C%20Jyoti%20Nagar%2C%20Shahdara%2C%20Delhi%2C%20110093!5e0!3m2!1sen!2sin!4v1684689166612!5m2!1sen!2sin"
+                  title="Map showing Delhi, India" width="600" height="300" style="border:0;"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </section>
 
-                </iframe>
-            </div>
+          </div>
         </div>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="index.js" type="module"></script>
 
+        <footer class="footer">
+          <span>© <span id="year"></span> Prithvi Yadav</span>
+          <span>Built with Three.js — no build step, no keys.</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 
 </html>
